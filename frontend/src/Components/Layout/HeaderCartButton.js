@@ -6,7 +6,8 @@ import Context from "../../store/Context";
 const HeaderCartButton = (props) => {
   const ctx = useContext(Context);
   const cartQuantity = ctx.items.reduce((previousValue, currentValue) => {
-    return previousValue + currentValue.amount;
+    // console.log('matched params', previousValue, currentValue);
+    return previousValue + JSON.parse(currentValue.amount);
   }, 0);
   return (
     <button className={classes.button} onClick={props.onClick}>
